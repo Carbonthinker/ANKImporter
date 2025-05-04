@@ -40,11 +40,14 @@ python app.py
 
 Your flashcards should be in the following format:
 ```
-Question: Your question here
-Answer: Your answer here
+Front: What is the capital of France?
+Back: Paris
 
-Question: Another question
-Answer: Another answer
+Front: What is 2+2?
+Back: 4
+References: Math textbook, p. 12
+
+
 ```
 ## Prompt template (for GPT,...)
 "You are an expert at creating spaced repetition flashcards. 
@@ -55,7 +58,7 @@ Answer: [The answer]
 
 Only output the list of flashcards in that format. 
 
-Here’s the text:" 
+Here's the text:" 
 
 ## Troubleshooting
 

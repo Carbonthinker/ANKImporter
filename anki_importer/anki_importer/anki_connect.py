@@ -3,7 +3,7 @@ import requests
 class AnkiConnect:
     def __init__(self, host="localhost", port=8765):
         self.base_url = f"http://{host}:{port}"
-        
+
     def _request(self, action, **params):
         try:
             response = requests.post(
@@ -40,7 +40,7 @@ class AnkiConnect:
             "addNote",
             note={
                 "deckName": deck_name,
-                "modelName": "Basic",
+                "modelName": "2.Basic",
                 "fields": {
                     "Front": front.strip(),
                     "Back": back.strip()
@@ -51,4 +51,21 @@ class AnkiConnect:
                 "tags": ["auto_imported"]
             }
         )
-        return result 
+        return result
+
+    def add_note_fields(self, fields_dict, deck_name, model_name=None):
+        if not model_name:
+            model_name = "2.Basic"
+        result = self._request(
+            "addNote",
+            note={
+                "deckName": deck_name,
+                "modelName": model_name,
+                "fields": fields_dict,
+                "options": {
+                    "allowDuplicate": False
+                },
+                "tags": ["auto_imported"]
+            }
+        )
+        return result
