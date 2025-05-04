@@ -16,9 +16,11 @@ A simple tool to import flashcards into Anki using Anki Connect.
    - Enter the code 2055492159
    - Restart Anki
 
-2. Install the Anki Importer:
+2. Clone and set up the project:
 ```bash
-pip install anki-importer
+git clone https://github.com/Carbonthinker/ANKImporter.git
+cd ANKImporter
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -26,7 +28,7 @@ pip install anki-importer
 1. Make sure Anki is running
 2. Run the importer:
 ```bash
-anki-importer
+python app.py
 ```
 
 3. In the application:
@@ -44,6 +46,16 @@ Answer: Your answer here
 Question: Another question
 Answer: Another answer
 ```
+## Prompt template (for GPT,...)
+"You are an expert at creating spaced repetition flashcards. 
+From the following text, extract 10-30 high-quality flashcards in the format:
+
+Question: [Your question] 
+Answer: [The answer]
+
+Only output the list of flashcards in that format. 
+
+Here’s the text:" 
 
 ## Troubleshooting
 
@@ -51,6 +63,10 @@ If you encounter connection errors:
 1. Make sure Anki is running
 2. Verify that Anki Connect is installed and enabled
 3. Check that Anki Connect is running on port 8765
+
+If you get "deck was not found" errors:
+1. Make sure the deck name exists in Anki
+2. The deck will be created automatically if it doesn't exist
 
 ## License
 
