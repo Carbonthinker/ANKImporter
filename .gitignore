@@ -34,4 +34,14 @@ env/
 
 # OS
 .DS_Store
+Thumbs.db
+
+# Build artifacts
+*.spec
+*.icns
+*.app
+*.bak
+
+# OS
+.DS_Store
 Thumbs.db 
